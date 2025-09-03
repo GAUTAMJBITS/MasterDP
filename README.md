@@ -58,7 +58,48 @@ int fibBU(int n) {
 
 LeetCode 70 – Climbing Stairs🟢
 
+```
+
+    public int climbStairs(int n) {
+        int[] dp=new int[n+1];
+        dp[0]=1;dp[1]=1;
+        for(int i=2;i<=n;i++){
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+        return dp[n];
+    }
+
+```
+
 LeetCode 198 – House Robber🟡
+
+```
+public int rob(int[] nums) {
+         int n=nums.length;
+1st approach
+        //  if(n==1)return nums[0];//base case
+        //  int prev2=nums[0]; //dp[i-1]
+        //  int prev1=Math.max(nums[0],nums[1]); //dp[i-2]
+        //  for(int i =2; i <n; i++){
+        //     int current=Math.max(prev1, prev2+nums[i]);
+        //     prev2=prev1;
+        //     prev1=current;
+        //  }
+        //  return prev1;
+
+2nd approach for fibonacci
+        if(n==1)return nums[0];
+        int[] dp=new int[n+1];
+        dp[0]=nums[0];
+        dp[1]=Math.max(nums[0], nums[1]);
+        for(int i=2; i<n;i++){
+            dp[i]=Math.max(dp[i-2] + nums[i], dp[i-1]);
+        }
+        return dp[n-1];
+
+
+    }
+```
 
 CSES – Dice Combinations🟡
 
